@@ -61,13 +61,26 @@ var App = React.createClass({
 
   if (view === "alpha") {
   this.setState({
-    movies: movieData.sort(this.movieCompareByTitle)
+    movies: movieData.sort(this.movieCompareByTitle),
+    latest: "",
+    alpha: "active",
+    map: ""
     })
-    
+
 
   } else if (view === "latest") {
   this.setState({
-    movies: movieData.sort(this.movieCompareByReleased)
+    movies: movieData.sort(this.movieCompareByReleased),
+    latest: "active",
+    alpha: "",
+    map: ""
+    })
+
+  }  else if (view === "map") {
+  this.setState({
+    latest: "",
+    alpha: "",
+    map: "active"
     })
   }
 },
@@ -118,7 +131,10 @@ var App = React.createClass({
     return {
       movies: movieData.sort(this.movieCompareByReleased),
       currentMovie: null,
-      currentView: 'latest'
+      currentView: 'latest',
+      latest: "active",
+      alpha: "",
+      map: ""
     }
   },
   componentDidMount: function() {
@@ -130,7 +146,7 @@ var App = React.createClass({
     return (
       <div>
         <Header currentUser={this.state.currentUser} />
-        <SortBar movieCount={this.state.movies.length} viewChanged={this.viewChanged} />
+        <SortBar movieCount={this.state.movies.length} viewChanged={this.viewChanged} latest={this.state.latest} alpha={this.state.alpha} map={this.state.map}/>
         <div className="main row">
           {this.renderMainSection()}
         </div>
