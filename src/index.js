@@ -17,18 +17,12 @@ var MovieList = require('./components/MovieList')
 var NoCurrentMovie = require('./components/NoCurrentMovie')
 var SortBar = require('./components/SortBar')
 
-// There should really be some JSON-formatted data in movies.json, instead of an empty array.
-// I started writing this command to extract the data from the learn-sql workspace
-// on C9, but it's not done yet :) You must have the csvtojson command installed on your
-// C9 workspace for this to work.
-// npm install -g csvtojson
-// sqlite3 -csv -header movies.sqlite3 'select "imdbID" as id, "title" from movies' | csvtojson --maxRowLength=0 > movies.json
 
 // Firebase configuration
 var Rebase = require('re-base')
 var base = Rebase.createClass({
-  apiKey: "...",   // replace with your Firebase application's API key
-  databaseURL: "...", // replace with your Firebase application's database URL
+  apiKey: "AIzaSyBEaK9zGLvi8E1_ZlEK_fUaCxZ5z2rGRkw",   // replace with your Firebase application's API key
+  databaseURL: "https://buyflix-2dfb6.firebaseio.com/", // replace with your Firebase application's database URL
 })
 
 var App = React.createClass({
@@ -138,9 +132,8 @@ var App = React.createClass({
     }
   },
   componentDidMount: function() {
-    // We'll need to enter our Firebase configuration at the top of this file and
-    // un-comment this to make the Firebase database work
-    // base.syncState('/movies', { context: this, state: 'movies', asArray: true })
+
+  base.syncState('/movies', { context: this, state: 'movies', asArray: true })
   },
   render: function() {
     return (
