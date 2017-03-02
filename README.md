@@ -1,6 +1,9 @@
-# Buyflix Starter Project for KIEI-924
+# Ricardo Lopez's Final Project for KIEI-924 Winter 2017
 
-## Getting Started
+## Here is where the live internet address! Thanks for a great quarter!
+https://buyflix-2dfb6.firebaseapp.com
+
+### Getting Started
 
 Upon download or clone:
 
