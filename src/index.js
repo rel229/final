@@ -16,6 +16,7 @@ var MovieDetails = require('./components/MovieDetails')
 var MovieList = require('./components/MovieList')
 var NoCurrentMovie = require('./components/NoCurrentMovie')
 var SortBar = require('./components/SortBar')
+var MapMe = require('./components/MapMe')
 
 
 // Firebase configuration
@@ -89,12 +90,9 @@ var App = React.createClass({
   },
   renderMainSection: function() {
     if (this.state.currentView === 'map') {
-      return (
-        <div className="col-sm-12">
-          <h3>This would be an awfully good place to put a map.</h3>
-        </div>
-      )
-    } else {
+      return < MapMe />
+
+      } else {
       return (
         <div>
           <MovieList movies={this.state.movies} movieClicked={this.movieClicked} />
